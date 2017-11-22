@@ -4,5 +4,20 @@ body {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: 'Open Sans', sans-serif;    
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+.input {
+    margin: 20px 2rem 5px;
+    padding: 11px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2.5px solid #4481eb;
+    width: 75%;
+}
+
+
+.error {
+    color: rgb(255,236,92);
 }
