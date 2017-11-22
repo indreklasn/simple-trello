@@ -7,7 +7,8 @@ import CreateBoardContainer from './boardCreation/CreateBoardContainer';
 const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
-  background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);  padding: 60px 35px;
+  background-image: linear-gradient(to top, #b224ef 0%, #7579ff 100%);
+  padding: 60px 35px;
 `
 
 

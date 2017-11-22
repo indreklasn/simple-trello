@@ -4,9 +4,9 @@ import BoardReducer from './BoardReducer';
 import { reducer as formReducer } from 'redux-form';
 
 const RootReducer = combineReducers({
+    form: formReducer,
     createBoard: CreateBoardReducer,
     board: BoardReducer,
-    form: formReducer
 })
 
 export default RootReducer;

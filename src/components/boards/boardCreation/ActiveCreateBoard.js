@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux'
-import { Field, reduxForm } from 'redux-form';
 import { Wrapper } from './CreateBoard';
 import cancelCreatingBoard from './../../../Actions/CancelCreatingBoard';
-import closeIcon from '../../../Assets/closeIcon.svg';
+import submitNewBoard from './../../../Actions/SubmitNewBoard';
+import BoardTitleForm from './BoardTitleForm';
 
 const Title = styled.h3`
     color: black
@@ -40,79 +40,23 @@ const BodyWrapper = styled.div`
 const BoardNamingTitle = styled.h5`
     color: black;
     font-weight: 400;
-    margin: 20px 19px 0 25px;
-`
-
-const BoardNamingInput = styled.input`
-    margin: 20px 2rem 5px;
-    padding: 11px 15px;
-    font-size: 16px;
-    border-radius: 3px;
-    border: 2.5px solid #4481eb;
-    width: 75%;
-`
-
-const ButtonWrapper = styled.div`
-    margin: 20px 0 5px 0;
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-` 
-
-
-const SubmitButton = styled.button`
-    width: 114px;
-    height: 43px;
-    margin: 15px 18px 5px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 200ms ease-in-out;
-    &:hover {
-        transition: all 200ms ease-in-out;
-        background-color: #4481eb;
-        color: white;
-    }
-`
-
-const CancelButton = styled.button`
-    width: auto;
-    height: 43px;
-    margin: 15px -5px 5px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 200ms ease-in-out;
-    border: none;
-    &:hover {
-        transition: all 200ms ease-in-out;
-        background-color: none;
-        color: black;
-    }
+    margin: 20px 19px 0 33px;
 `
 
 
 class ActiveCreateBoard extends Component {
 
-    handleForm = () => {
-        console.log('subbmittet')
-    }
 
-    renderForm = (props) => {
-        const { handleSubmit } = this.props;
-        return (
-            <form onSubmit={handleSubmit(this.handleForm)}>
-                <Field
-                    name="boardTitle"
-                    component={BoardNamingInput}
-                    type="text"
-                />
-            </form>
-        )
+    onSubmit = (values) => {
+        console.log("handling form", values)
     }
-
 
     render() {
 
-        const { cancelCreatingBoard } = this.props
+        const {
+            cancelCreatingBoard,
+        } = this.props;
+
         return (
 
             <Wrapper>
@@ -127,11 +71,10 @@ class ActiveCreateBoard extends Component {
 
                 <BodyWrapper>
                     <BoardNamingTitle>What shall we call the board?</BoardNamingTitle>
-                    {this.renderForm()}
-                    <ButtonWrapper>
-                        <CancelButton onClick={() => cancelCreatingBoard()}>Cancel</CancelButton>
-                        <SubmitButton onClick={this.handleForm()}>Create</SubmitButton>
-                    </ButtonWrapper>
+                    <BoardTitleForm
+                        onSubmit={this.onSubmit}
+                        cancelAction={cancelCreatingBoard}
+                    />
                 </BodyWrapper>
 
             </Wrapper>
@@ -152,7 +95,4 @@ function validate(values) {
     return errors;
 }
 
-export default reduxForm({
-    validate,
-    form: 'boardTitle'
-})(connect(null, { cancelCreatingBoard })(ActiveCreateBoard));
+export default connect(null, { cancelCreatingBoard, submitNewBoard })(ActiveCreateBoard);
