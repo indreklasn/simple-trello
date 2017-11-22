@@ -7,7 +7,7 @@ html {
 body {
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
-    background-image: linear-gradient(to top, #b224ef 0%, #7579ff 100%);
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
     background-repeat: no-repeat;
     height: 100%;
     margin: 0;

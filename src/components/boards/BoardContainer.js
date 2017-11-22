@@ -15,12 +15,13 @@ class BoardContainer extends Component {
   renderAllBoards = () => {
     const { boardsCollection } = this.props
 
-    boardsCollection.map(board => {
+    return boardsCollection.map(board => {
       return <ShowAllBoards key={board.title} title={board.title} />
     })
+
   }
 
-  shouldComponentUpdate(nextProps) {
+  componentWillUpdate(nextProps) {
     console.log(this.props.boardsCollection, nextProps.boardsCollection)
     if (this.props.boardsCollection.length !== nextProps.boardsCollection.length) {
       this.renderAllBoards();
@@ -34,8 +35,6 @@ class BoardContainer extends Component {
         <CreateBoardContainer />
 
         {this.renderAllBoards()}
-
-        <ShowAllBoards title="asd" />
 
       </Wrapper>
     )
