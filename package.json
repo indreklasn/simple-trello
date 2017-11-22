@@ -4,9 +4,10 @@
   "private": true,
   "dependencies": {
     "eslint-plugin-react": "^7.5.1",
-    "polished": "^1.9.0",
-    "react-datepicker": "^0.60.2",
+    "react": "^16.1.0",
     "react-dom": "^16.1.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
@@ -22,8 +23,6 @@
   "devDependencies": {
     "eslint": "^4.11.0",
     "eslint-config-google": "^0.9.1",
-    "react": "^16.1.0",
-    "react-redux": "^5.0.6",
     "styled-components": "^2.2.3"
   }
 }

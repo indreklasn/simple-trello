@@ -5,8 +5,10 @@ import PropTypes from 'prop-types';
 import createNewBoard from './../../../Actions/CreateNewBoard';
 
 export const Wrapper = styled.div`
-    width: 25%;
-    background-color: white;
+    width: 345px;
+    height: auto;
+    margin: 20px;
+    background-color: #9fe7a4;
     padding: 30px 0;
     display: flex;
     flex-direction: column;
@@ -16,19 +18,19 @@ export const Wrapper = styled.div`
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     cursor: pointer;
     transition: 200ms ease-in-out;
+    font-weight: 900;
+    text-shadow: 0px 0px 3px #000;
 
     &:hover {
         box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
         transition: 200ms ease-in-out;
+        transform: scale(1.10);
     }
 
-    @media (max-width: 960px) {
-        width: 50%;
-    }
 `
 
 const Text = styled.h3`
-    color: black;
+    color: white;
 `
 
 

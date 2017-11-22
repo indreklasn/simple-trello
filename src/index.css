@@ -1,10 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
+html {
+    height: 100%;
+}
+
 body {
     box-sizing: border-box;
-    padding: 0;
-    margin: 0;
     font-family: 'Open Sans', sans-serif;
+    background-image: linear-gradient(to top, #b224ef 0%, #7579ff 100%);
+    background-repeat: no-repeat;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -13,13 +20,13 @@ body {
     padding: 11px 15px;
     font-size: 16px;
     border-radius: 5px;
-    border: 2.5px solid #4481eb;
+    border: 2.5px solid #9fe7a4;
     width: 75%;
 }
 
 
 .error {
-    color: #ff5252;
+    color: #f9dcb2;
     text-align: center;
     align-self: center;
     font-weight: 400;

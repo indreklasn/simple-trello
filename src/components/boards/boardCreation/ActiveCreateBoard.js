@@ -7,7 +7,8 @@ import submitNewBoard from './../../../Actions/SubmitNewBoard';
 import BoardTitleForm from './BoardTitleForm';
 
 const Title = styled.h3`
-    color: black
+    color: white;
+    text-shadow: 0px 0px 3px #000;
 `
 
 const TopWrapper = styled.div`
@@ -38,7 +39,8 @@ const BodyWrapper = styled.div`
 `
 
 const BoardNamingTitle = styled.h5`
-    color: black;
+    color: white;
+    text-shadow: 0px 0px 3px #000;
     font-weight: 400;
     margin: 20px 19px 0 33px;
 `

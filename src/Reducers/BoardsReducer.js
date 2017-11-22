@@ -2,10 +2,7 @@ import {
     RECEIVE_NEW_BOARD,
 } from './../Actions/ActionTypes';
 
-const initialState = {
-    title: null,
-    id: null,
-}
+const initialState = [];
 
 export default function(state = initialState, action) {
 
@@ -17,5 +14,4 @@ export default function(state = initialState, action) {
             return state;
     }
 
-    return state;
 }
