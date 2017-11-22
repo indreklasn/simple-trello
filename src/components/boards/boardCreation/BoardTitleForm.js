@@ -17,14 +17,6 @@ const CancelButton = styled.button`
         color: black;
     }
 `
-const BoardNamingInput = styled.input`
-    margin: 20px 2rem 5px;
-    padding: 11px 15px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 2.5px solid #4481eb;
-    width: 75%;
-`
 
 const ButtonWrapper = styled.div`
     margin: 20px 0 5px 0;
@@ -70,7 +62,19 @@ let BoardTitleForm = (props) => {
     )
 }
 
+function validate(values) {
+
+    let errors = {};
+
+    if (!values.boardTitle || values.boardTitle === '') {
+        errors.boardTitle =  "Oops! Looks like you forgot the name!"
+    }
+
+    return errors;
+}
+
 BoardTitleForm = reduxForm({
+    validate,
     form: 'boardTitle'
 })(BoardTitleForm)
 

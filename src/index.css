@@ -19,5 +19,9 @@ body {
 
 
 .error {
-    color: rgb(255,236,92);
+    color: #ff5252;
+    text-align: center;
+    align-self: center;
+    font-weight: 400;
+    margin: 0 30px;
 }

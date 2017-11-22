@@ -1,12 +1,15 @@
 import { combineReducers } from 'redux';
-import CreateBoardReducer from './CreateBoardReducer';
-import BoardReducer from './BoardReducer';
 import { reducer as formReducer } from 'redux-form';
+import CreateBoardReducer from './CreateBoardReducer';
+import BoardsReducer from './BoardsReducer';
+import ActiveBoardReducer from './ActiveBoardReducer';
+
 
 const RootReducer = combineReducers({
     form: formReducer,
-    createBoard: CreateBoardReducer,
-    board: BoardReducer,
+    newBoard: CreateBoardReducer,
+    boardsCollection: BoardsReducer,
+    activeBoard: ActiveBoardReducer,
 })
 
 export default RootReducer;

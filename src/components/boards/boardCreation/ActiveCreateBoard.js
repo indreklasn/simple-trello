@@ -48,7 +48,9 @@ class ActiveCreateBoard extends Component {
 
 
     submit = (values) => {
-        console.log("handling form", values)
+        this.props.submitNewBoard(values.boardTitle);
+
+        values.boardTitle = '';
     }
 
     render() {
@@ -83,16 +85,5 @@ class ActiveCreateBoard extends Component {
     }
 }
 
-
-function validate(values) {
-
-    let errors = {};
-
-    if (!values.boardTitle) {
-        errors.boardTitle =  "Oops! Looks like you forgot the name!"
-    }
-
-    return errors;
-}
 
 export default connect(null, { cancelCreatingBoard, submitNewBoard })(ActiveCreateBoard);
