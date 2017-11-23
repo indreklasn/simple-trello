@@ -9,7 +9,7 @@ export default class ShowActiveBoard extends Component {
     render() {
         return (
             <div>
-                <h1>lol</h1>
+                <h1>showing singular board</h1>
             </div>
         )
     }

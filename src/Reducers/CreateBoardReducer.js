@@ -47,6 +47,9 @@ export default function(state = initialState, action) {
         case CLEAN_NEW_BOARD:
             return {
                 ...state,
+                title: null,
+                id: null,
+                success: null,
             }
 
 

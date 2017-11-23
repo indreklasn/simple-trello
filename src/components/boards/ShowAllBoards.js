@@ -33,7 +33,7 @@ const BoardWrapper = styled.div`
 `
 
 const ShowAllBoards = ({title, id}) => (
-    <Link to={`/b/${id}`} component={ShowActiveBoard}>
+    <Link to={`/b/${id}`}>
         <BoardWrapper>
             <Title>{title}</Title>
         </BoardWrapper>
