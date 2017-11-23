@@ -16,17 +16,15 @@ class BoardContainer extends Component {
     const { boardsCollection } = this.props
 
     return boardsCollection.map(board => {
-      return <ShowAllBoards key={board.title} title={board.title} />
+      return (
+        <ShowAllBoards
+          id={board.id}
+          key={board.title}
+          title={board.title}
+        />
+      )
     })
 
-  }
-
-  componentWillUpdate(nextProps) {
-    console.log(this.props.boardsCollection, nextProps.boardsCollection)
-    if (this.props.boardsCollection.length !== nextProps.boardsCollection.length) {
-      this.renderAllBoards();
-      return true;
-    }
   }
 
   render() {
