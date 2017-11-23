@@ -12,6 +12,8 @@ const initialState = {
     success: false,
 }
 
+let initialId = 0;
+
 export default function(state = initialState, action) {
 
     switch (action.type) {
@@ -40,7 +42,7 @@ export default function(state = initialState, action) {
                 ...state,
                 isBoardOpen: false,
                 title: action.payload,
-                id: Math.floor(100000 + Math.random() * 900000),
+                id: initialId++
             }
 
         case CLEAN_NEW_BOARD:

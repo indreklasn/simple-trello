@@ -24,9 +24,14 @@ class ShowActiveBoard extends Component {
 
     getTitle = () => {
 
-        if (localStorage.getItem("activeBoard") !== null) {
-            let activeBoard = JSON.parse(localStorage.getItem("activeBoard"));
-            return activeBoard.title;
+        try {
+            if (localStorage.getItem('activeBoard') !== null) {
+                let activeBoard = JSON.parse(localStorage.getItem('activeBoard'));
+                return activeBoard.title;
+            }
+        } catch(err) {
+            console.log(err);
+            return undefined;
         }
 
         return this.props.activeBoard.title;
@@ -36,7 +41,9 @@ class ShowActiveBoard extends Component {
 
         return (
             <div>
-                <ActiveBoardTitle>{this.getTitle()}</ActiveBoardTitle>
+                <ActiveBoardTitle>
+                    {this.getTitle()}
+                </ActiveBoardTitle>
             </div>
         )
     }

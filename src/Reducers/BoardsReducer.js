@@ -12,12 +12,6 @@ export default function(state = initialState, action) {
         case RECEIVE_NEW_BOARD:
             return [...state, action.payload];
 
-        case STORE_NEW_BOARD:
-
-            let boardsCollection = [...state];
-            localStorage.setItem('boardCollection', JSON.stringify(boardsCollection));
-            return boardsCollection;
-
         default:
             return state;
 

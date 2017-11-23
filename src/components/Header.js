@@ -11,8 +11,8 @@ const HeaderWrapper = styled.div`
 
 const Image = styled.svg`
     background-image: url(${Logo});
-    width: 95px;
-    height: 95px;
+    width: 65px;
+    height: 65px;
     background-repeat: no-repeat;
     filter: drop-shadow(3px 3px 3px #333);
     transition: all 200ms ease-in-out;
