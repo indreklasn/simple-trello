@@ -5,7 +5,6 @@ import {
     CLEAN_NEW_BOARD,
 } from './../Actions/ActionTypes';
 
-
 const initialState = {
     isBoardOpen: false,
     title: null,
@@ -36,6 +35,7 @@ export default function(state = initialState, action) {
             };
 
         case SUBMIT_NEW_BOARD:
+
             return {
                 ...state,
                 isBoardOpen: false,
@@ -50,7 +50,6 @@ export default function(state = initialState, action) {
                 id: null,
                 success: null,
             }
-
 
             default:
                 return state;
