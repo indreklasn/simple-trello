@@ -19,7 +19,7 @@ class BoardContainer extends Component {
       return (
         <ShowAllBoards
           id={board.id}
-          key={board.title}
+          key={board.id}
           title={board.title}
         />
       )

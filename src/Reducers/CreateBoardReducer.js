@@ -36,7 +36,6 @@ export default function(state = initialState, action) {
             };
 
         case SUBMIT_NEW_BOARD:
-
             return {
                 ...state,
                 isBoardOpen: false,

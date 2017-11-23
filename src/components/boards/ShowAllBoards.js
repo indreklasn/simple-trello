@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import ShowActiveBoard from './ShowActiveBoard';
 
 const Title = styled.h2`
     color: black;
