@@ -17,6 +17,7 @@ const Store =  createStore(
 Store.subscribe(throttle(() => {
     saveState({
         boardsCollection: Store.getState().boardsCollection,
+        activeBoard: Store.getState().activeBoard,
     })
 }, 1000));
 

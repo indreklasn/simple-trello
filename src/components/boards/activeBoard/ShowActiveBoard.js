@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import selectActiveBoard from './../../../Actions/SelectActiveBoard';
 import ActiveBoardTitle from './ActiveBoardTitle';
+// import LoadingComponent from './LoadingComponent';
 
 class ShowActiveBoard extends Component {
 
@@ -16,18 +17,25 @@ class ShowActiveBoard extends Component {
             selectActiveBoard,
         } = this.props;
         selectActiveBoard(match.params.id);
+
+        console.log(this.props.activeBoard);
     }
 
-    componentWillUnmount() {
-        localStorage.removeItem('activeBoard');
-    }
+    // componentWillUnmount() {
+    //     localStorage.removeItem('activeBoard');
+    // }
 
     getTitle = () => {
-        return "random title for now"
+        return this.props.activeBoard.title;
     }
 
     render() {
-
+        const { activeBoard } = this.props;
+        if (activeBoard.isFetching) {
+            return (
+                <div>loading</div>
+            )
+        }
         return (
             <div>
                 <ActiveBoardTitle>
