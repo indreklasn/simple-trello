@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import selectActiveBoard from './../../../Actions/SelectActiveBoard';
 import ActiveBoardTitle from './ActiveBoardTitle';
-// import LoadingComponent from './LoadingComponent';
+import ListWrapper from './ListWrapper';
+import CreateNewList from './CreateNewList';
 
 class ShowActiveBoard extends Component {
 
@@ -21,26 +22,29 @@ class ShowActiveBoard extends Component {
         console.log(this.props.activeBoard);
     }
 
-    // componentWillUnmount() {
-    //     localStorage.removeItem('activeBoard');
-    // }
-
     getTitle = () => {
         return this.props.activeBoard.title;
     }
 
     render() {
+
         const { activeBoard } = this.props;
         if (activeBoard.isFetching) {
             return (
-                <div>loading</div>
+                <div>loading...</div>
             )
         }
+
         return (
             <div>
                 <ActiveBoardTitle>
                     {this.getTitle()}
                 </ActiveBoardTitle>
+                <ListWrapper>
+                    <CreateNewList />
+                </ListWrapper>
+
+
             </div>
         )
     }
