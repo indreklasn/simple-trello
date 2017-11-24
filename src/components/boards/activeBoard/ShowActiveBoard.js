@@ -2,9 +2,12 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import selectActiveBoard from './../../../Actions/SelectActiveBoard';
+import enableListEditMode from './../../../Actions/ToggleListEditMode';
+import submitList from './../../../Actions/SubmitList';
 import ActiveBoardTitle from './ActiveBoardTitle';
 import ListWrapper from './ListWrapper';
 import CreateNewList from './CreateNewList';
+import ListEditingMode from './ListEditingMode';
 
 class ShowActiveBoard extends Component {
 
@@ -18,17 +21,20 @@ class ShowActiveBoard extends Component {
             selectActiveBoard,
         } = this.props;
         selectActiveBoard(match.params.id);
-
-        console.log(this.props.activeBoard);
     }
 
     getTitle = () => {
         return this.props.activeBoard.title;
     }
 
+    handleListSubmit = values => {
+        console.log(values.listItem)
+        this.props.submitList(values.listItem)
+    }
+
     render() {
 
-        const { activeBoard } = this.props;
+        const { activeBoard, enableListEditMode } = this.props;
         if (activeBoard.isFetching) {
             return (
                 <div>loading...</div>
@@ -41,7 +47,10 @@ class ShowActiveBoard extends Component {
                     {this.getTitle()}
                 </ActiveBoardTitle>
                 <ListWrapper>
-                    <CreateNewList />
+                    { activeBoard.isEditingList
+                        ? <ListEditingMode onSubmit={this.handleListSubmit} />
+                        : <CreateNewList addList={enableListEditMode} />
+                    }
                 </ListWrapper>
 
 
@@ -56,4 +65,6 @@ function mapStateToProps({ activeBoard }) {
     }
 }
 
-export default connect(mapStateToProps, { selectActiveBoard })(ShowActiveBoard);
+export default connect(mapStateToProps,
+    { selectActiveBoard, enableListEditMode, submitList }
+)(ShowActiveBoard);

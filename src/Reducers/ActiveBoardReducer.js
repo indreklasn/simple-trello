@@ -1,13 +1,18 @@
 import {
     SELECT_ACTIVE_BOARD,
-    SELECT_ACTIVE_BOARD_SUCCESS
+    SELECT_ACTIVE_BOARD_SUCCESS,
+    LIST_EDIT_MODE_ENABLED,
+    STOP_EDITING_LIST,
+    SUBMIT_LIST,
 } from './../Actions/ActionTypes';
 
 
 const initialState = {
     title: null,
     id: null,
-    isFetching: false
+    isFetching: false,
+    isEditingList: false,
+    listItems: [],
 }
 
 export default function(state = initialState, action) {
@@ -27,6 +32,26 @@ export default function(state = initialState, action) {
                     ...state,
                     isFetching: false
                 }
+
+            case STOP_EDITING_LIST:
+                console.log("inside LIST_EDIT_MODE_DISABLED")
+                return {
+                    ...state,
+                    isEditingList: action.payload
+                }
+
+            case LIST_EDIT_MODE_ENABLED:
+                return {
+                    ...state,
+                    isEditingList: action.payload
+                };
+
+            case SUBMIT_LIST:
+                return {
+                    ...state,
+                    // listItems: // push action.payload(string) inside this array
+                }
+
 
         default:
             return {...state};
