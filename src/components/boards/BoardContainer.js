@@ -14,18 +14,6 @@ class BoardContainer extends Component {
 
   renderAllBoards = () => {
     const { boardsCollection } = this.props;
-    const boardsCollectionLocalStorage = JSON.parse(localStorage.getItem('boardCollection'));
-    if (boardsCollectionLocalStorage && boardsCollectionLocalStorage.length) {
-      return boardsCollectionLocalStorage.map(board => {
-        return (
-          <ShowAllBoards
-            id={board.id}
-            key={board.id}
-            title={board.title}
-          />
-        )
-      })
-    } else {
       return boardsCollection.map(board => {
         return (
           <ShowAllBoards
@@ -35,9 +23,6 @@ class BoardContainer extends Component {
           />
         )
       })
-    }
-
-
   }
 
   render() {

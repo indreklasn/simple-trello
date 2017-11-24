@@ -1,25 +1,17 @@
-import Store from './../Store';
-import {
-    SELECT_ACTIVE_BOARD,
-} from './../Actions/ActionTypes';
+// import Store from './../Store';
+// import {
+// } from './../Actions/ActionTypes';
 
 
-const initialState = {}
+// const initialState = {}
 
-export default function(state = initialState, action) {
+// export default function(state = initialState, action) {
 
-    switch (action.type) {
+//     switch (action.type) {
 
-        case SELECT_ACTIVE_BOARD:
-            console.log(action.payload)
-            return {
-                ...state,
-                title: action.payload.title,
-                id: action.payload.id
-            };
 
-        default:
-            return {...state};
+//         default:
+//             return {...state};
 
-    }
-}
+//     }
+// }

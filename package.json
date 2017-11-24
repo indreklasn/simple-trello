@@ -1,10 +1,12 @@
 {
-  "name": "calendar-appointments",
+  "name": "trello-copy",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "license": "MIT",
   "dependencies": {
     "eslint-plugin-react": "^7.5.1",
     "lodash": "^4.17.4",
+    "node-uuid": "^1.4.8",
     "react": "^16.1.0",
     "react-dom": "^16.1.0",
     "react-redux": "^5.0.6",
