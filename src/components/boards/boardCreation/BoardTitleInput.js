@@ -13,7 +13,7 @@ const BoardTitleInput = (field) => (
         {
             field.meta.touched &&
             field.meta.error &&
-            <span className="error">{field.meta.error}</span>
+            <p className="error">{field.meta.error}</p>
         }
     </label>
 )

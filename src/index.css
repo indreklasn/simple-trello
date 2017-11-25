@@ -29,11 +29,13 @@ body {
 
 
 .error {
-    color: #f9dcb2;
+    color: #ad1457;
     text-align: center;
     align-self: center;
     font-weight: 400;
-    margin: 0 30px;
+    margin: 10px 0 0 0;
+    font-weight: 900;
+    text-align: center;
 }
 
 a {

@@ -4,7 +4,9 @@ import CloseIcon from '../../../Assets/closeIcon.svg';
 
 const DisableWrapper = styled.div`
     position: relative;
-    left: 50px;
+    left: 30px;
+    top: -24px;
+    z-index: 9999;
 `
 
 const DisableButton = styled.svg`
