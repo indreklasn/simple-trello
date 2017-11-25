@@ -18,6 +18,8 @@ Store.subscribe(throttle(() => {
     saveState({
         boardsCollection: Store.getState().boardsCollection,
         activeBoard: Store.getState().activeBoard,
+        newBoard: Store.getState().newBoard,
+        listItems: Store.getState().listItems,
     })
 }, 1000));
 

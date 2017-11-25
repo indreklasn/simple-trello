@@ -18,24 +18,31 @@ body {
 }
 
 
-.input {
-    margin: 20px 2rem 5px;
+input {
     padding: 11px 15px;
     font-size: 16px;
     border-radius: 5px;
-    border: 2.5px solid #9fe7a4;
-    width: 75%;
+    border: 2.5px solid rgba(255, 255, 255, 0.8);
+    width: 100%;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.16), 0 3px 3px rgba(0,0,0,0.23);
+    width: 200px;
 }
 
+hr {
+    height: 1px;
+    width: 100%;
+    margin: 2.5px 0 10px 0;
+    opacity: 0.25;
+}
 
 .error {
-    color: #ad1457;
+    color: #000;
+    text-shadow: 1px 1px 1px white;
     text-align: center;
-    align-self: center;
     font-weight: 400;
     margin: 10px 0 0 0;
-    font-weight: 900;
     text-align: center;
+    font-size: 12px
 }
 
 a {

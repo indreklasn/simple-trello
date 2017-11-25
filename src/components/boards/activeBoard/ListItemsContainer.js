@@ -6,8 +6,8 @@ class ListItemsContainer extends Component {
 
     renderListItems = () => {
         const { listItems } = this.props;
-        return listItems.map(item => {
-            return <ListItem name={item.name} />
+        return listItems.map((item, i) => {
+            return <ListItem key={i} name={item.name} />
         })
     }
 
