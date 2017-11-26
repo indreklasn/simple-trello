@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import mapValues from 'lodash/mapValues';
 import ListItem, { ListItemsWrapper } from './ListItem';
+
 
 class ListItemsContainer extends Component {
 
     renderListItems = () => {
         const { activeBoardData } = this.props;
-        return activeBoardData.listItems.map(item => {
-            return <ListItem key={item.id} name={item.name} />
-        })
+        const mappedList = mapValues(activeBoardData.listItem, list => list.name);
+        const mappedValues = Object.values(mappedList);
+
+        return mappedValues.map((item, i) => <ListItem key={i} name={item} />)
+
     }
 
     render() {

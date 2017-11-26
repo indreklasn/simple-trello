@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Field, reduxForm, reset } from 'redux-form';
 import { connect } from 'react-redux'
-import { v4 } from 'node-uuid';
 import submitNewCard from './../../../Actions/SubmitNewCard';
 import BoardTitleInput from './../boardCreation/BoardTitleInput';
 import Card from './Card';
+import uniqueId from 'lodash/uniqueId';
 
 class CreateCardContainer extends Component {
 
@@ -15,10 +15,9 @@ class CreateCardContainer extends Component {
 
     renderCards = () => {
         const { activeBoardData } = this.props;
-        console.log(activeBoardData)
-        return activeBoardData.cardItems.map(card => {
-            return <Card key={card.id} title={card.cardName} />
-        })
+        // return activeBoardData.cardItems.map((card, i) => {
+        //     return <Card key={i} title={card.cardName} />
+        // })
     }
 
     render() {
@@ -30,7 +29,7 @@ class CreateCardContainer extends Component {
                         <Field
                             type="text"
                             component={BoardTitleInput}
-                            name="cardName"
+                            name={uniqueId("cardName_")}
                         />
                     </label>
                 </form>

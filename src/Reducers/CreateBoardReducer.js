@@ -1,4 +1,4 @@
-import { v4 } from 'node-uuid';
+import uniqueId from 'lodash/uniqueId'
 
 import {
     CREATE_NEW_BOARD,
@@ -41,7 +41,7 @@ export default function(state = initialState, action) {
                 ...state,
                 isBoardOpen: false,
                 title: action.payload,
-                id: v4(),
+                id: uniqueId(''),
             }
 
             default:
