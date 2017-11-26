@@ -5,9 +5,9 @@ import ListItem, { ListItemsWrapper } from './ListItem';
 class ListItemsContainer extends Component {
 
     renderListItems = () => {
-        const { listItems } = this.props;
-        return listItems.map((item, i) => {
-            return <ListItem key={i} name={item.name} />
+        const { activeBoardData } = this.props;
+        return activeBoardData.listItems.map(item => {
+            return <ListItem key={item.id} name={item.name} />
         })
     }
 
@@ -21,8 +21,8 @@ class ListItemsContainer extends Component {
     }
 }
 
-function mapStateToProps({listItems}) {
-    return { listItems }
+function mapStateToProps({activeBoardData}) {
+    return { activeBoardData }
 }
 
 export default connect(mapStateToProps)(ListItemsContainer);
