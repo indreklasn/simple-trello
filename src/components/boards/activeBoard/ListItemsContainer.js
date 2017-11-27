@@ -7,11 +7,17 @@ import ListItem, { ListItemsWrapper } from './ListItem';
 class ListItemsContainer extends Component {
 
     renderListItems = () => {
-        const { activeBoardData } = this.props;
-        const mappedList = mapValues(activeBoardData.listItem, list => list.name);
+        const { activeBoardData } = this.props
+
+        const mappedList = mapValues(activeBoardData.listItems, list => list.name);
+        const mappedKeys = Object.keys(mappedList)
         const mappedValues = Object.values(mappedList);
 
-        return mappedValues.map((item, i) => <ListItem key={i} name={item} />)
+        console.log(mappedList, mappedKeys);
+
+        return mappedKeys.map((id, i) => {
+            return <ListItem id={id} key={i} name={mappedList[id]} />
+        })
 
     }
 

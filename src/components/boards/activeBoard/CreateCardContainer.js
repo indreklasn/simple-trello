@@ -10,14 +10,14 @@ class CreateCardContainer extends Component {
 
     submit = values => {
         console.log(values)
-        this.props.submitNewCard(values)
+        this.props.submitNewCard(values.cardName, uniqueId('cardItem_'), this.props.listId)
     }
 
     renderCards = () => {
         const { activeBoardData } = this.props;
-        // return activeBoardData.cardItems.map((card, i) => {
-        //     return <Card key={i} title={card.cardName} />
-        // })
+        return activeBoardData.listItems[this.props.listId].cards.map((card, i) => {
+            return <Card key={i} title={card.name} />
+        })
     }
 
     render() {
@@ -29,7 +29,7 @@ class CreateCardContainer extends Component {
                         <Field
                             type="text"
                             component={BoardTitleInput}
-                            name={uniqueId("cardName_")}
+                            name="cardName"
                         />
                     </label>
                 </form>

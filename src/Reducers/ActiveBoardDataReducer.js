@@ -1,44 +1,45 @@
+import { combineReducers } from 'redux';
 import {
     SUBMIT_LIST,
     SUBMIT_NEW_CARD,
 } from './../Actions/ActionTypes';
 import uniqueId from 'lodash/uniqueId';
 
-// const initialState = {
-//     listItem: {
-//         byId: {
-//             id: null,
-//             cards: {
-//                 name: [],
-//                 id: null
-//             }
-//         }
-//     }
-// }
 
-export default function(state = {}, action) {
+const ListReducer = (state = {}, action) => {
+
+    const listId = uniqueId("list_");
     switch (action.type) {
 
         case SUBMIT_LIST:
             return {
                 ...state,
-                listItem: {
-                    ...state.listItem,
-                    [uniqueId('list_')]: {
-                        name: action.payload
-                    }
+                [listId]: { // the unique ID of the list
+                    name: action.payload, // name of the list
+                    id: listId,
+                    cards: [] // card IDs go inside here
                 }
             };
 
-        // case SUBMIT_NEW_CARD:
-        //     return {
-        //         ...state,
-        //         listItem: {
-        //             cards: state.listItem.cards.concat(action.payload)
-        //         }
-        //     }
+        case SUBMIT_NEW_CARD:
+
+            const currentList = state[action.payload.listId];
+            currentList.cards.push({name: action.payload.cardName});
+
+            return {
+                ...state,
+                [action.payload.listId]: currentList,
+            }
+
 
         default:
             return state;
     }
 }
+
+
+const ActiveBoardReducer = combineReducers({
+    listItems: ListReducer,
+})
+
+export default ActiveBoardReducer;
