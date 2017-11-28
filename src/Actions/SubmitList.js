@@ -1,5 +1,4 @@
 import { SUBMIT_LIST } from './ActionTypes';
-import uniqueId from 'lodash/uniqueId'
 
 export default function submitList(name) {
     return dispatch => {

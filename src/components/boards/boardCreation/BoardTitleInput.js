@@ -1,7 +1,5 @@
 import React from 'react';
 
-// refactor this to styled components please */
-
 const BoardTitleInput = (field) => (
     <label>
         <input

@@ -9,14 +9,14 @@ import uniqueId from 'lodash/uniqueId';
 class CreateCardContainer extends Component {
 
     submit = values => {
-        console.log(values)
-        this.props.submitNewCard(values.cardName, uniqueId('cardItem_'), this.props.listId)
+        const { listId } = this.props;
+        let cardName = `cardName_${listId}`
+        this.props.submitNewCard(values[cardName], uniqueId('cardItem_'), this.props.listId)
     }
 
     renderCards = () => {
         const { activeBoardData, listId } = this.props;
         return activeBoardData.listItems[listId].cards.map((card, i) => {
-            console
             return <Card key={i} title={card.name} />
         })
     }
@@ -30,7 +30,7 @@ class CreateCardContainer extends Component {
                         <Field
                             type="text"
                             component={BoardTitleInput}
-                            name="cardName"
+                            name={`cardName_${listId}`}
                         />
                     </label>
                 </form>
