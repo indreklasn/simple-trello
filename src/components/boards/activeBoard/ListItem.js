@@ -27,7 +27,7 @@ const ListItemHeader = styled.h4`
 
 const ListItem = ({name, id}) => (
     <ListItemWrapper>
-        <ListItemHeader>{id}</ListItemHeader>
+        <ListItemHeader>{name}</ListItemHeader>
         <hr />
         <CreateCardContainer listId={id} />
     </ListItemWrapper>
