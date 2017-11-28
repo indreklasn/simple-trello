@@ -19,7 +19,7 @@ Store.subscribe(throttle(() => {
         boardsCollection: Store.getState().boardsCollection,
         activeBoard: Store.getState().activeBoard,
         newBoard: Store.getState().newBoard,
-        listItems: Store.getState().listItems,
+        activeBoardData: Store.getState().activeBoardData,
     })
 }, 1000));
 
