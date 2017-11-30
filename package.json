@@ -7,6 +7,8 @@
     "eslint-plugin-react": "^7.5.1",
     "lodash": "^4.17.4",
     "react": "^16.1.0",
+    "react-dnd": "^2.5.4",
+    "react-dnd-html5-backend": "^2.5.4",
     "react-dom": "^16.1.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",

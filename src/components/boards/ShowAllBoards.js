@@ -4,15 +4,16 @@ import { Link } from 'react-router-dom';
 
 const Title = styled.h2`
     color: black;
+    word-break: break-all;
+    padding: 10px;
 `
 
 const BoardWrapper = styled.div`
     width: 345px;
-    height: 100px;
     margin: 20px;
     background-color: white;
     color: #333;
-    padding: 30px 0;
+    padding: 15px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;

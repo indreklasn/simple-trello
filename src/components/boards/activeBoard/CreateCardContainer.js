@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { Field, reduxForm, reset } from 'redux-form';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend'
 import submitNewCard from './../../../Actions/SubmitNewCard';
 import BoardTitleInput from './../boardCreation/BoardTitleInput';
 import Card from './Card';
 import uniqueId from 'lodash/uniqueId';
+
 
 class CreateCardContainer extends Component {
 
@@ -34,7 +37,9 @@ class CreateCardContainer extends Component {
                         />
                     </label>
                 </form>
-                {this.renderCards()}
+                <DragDropContext backend={HTML5Backend}>
+                    {this.renderCards()}
+                </DragDropContext>
             </div>
         )
     }
