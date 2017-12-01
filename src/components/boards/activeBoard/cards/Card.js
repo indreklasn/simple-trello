@@ -75,7 +75,6 @@ class Card extends Component {
             listId,
             isArchived,
         } = this.props;
-        console.log(this.props)
 
         const cardStyles = {
             opacity: isDragging || isArchived ? 0.35 : 1,

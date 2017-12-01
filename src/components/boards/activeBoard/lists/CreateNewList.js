@@ -13,6 +13,7 @@ export const Wrapper = styled.div`
     padding: 10px 40px;
     align-items: center;
     animation: ${fadeIn} 300ms linear;
+    border-radius: 5px;
 
     &:hover {
         cursor: pointer;

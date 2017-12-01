@@ -41,7 +41,6 @@ const ListReducer = (state = {}, action) => {
             const removeCard = state[listId].cards.find(card => card.cardId === cardId); // find the card to remove
             const oldList = state[listId].cards.splice(removeCard, 1) // remove the card from the list
 
-            // console.log(action.payload, cardId, cardName, listId, newListId);
                 return {
                     ...state,
                     [newListId]: currentList,
@@ -58,8 +57,6 @@ const ListReducer = (state = {}, action) => {
             } else {
                 findCard.isArchived = false;
             }
-
-            console.log(findCard);
 
             return {
                 ...state,
