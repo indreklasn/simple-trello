@@ -30,6 +30,7 @@ module.exports = {
         "react/jsx-uses-react": "error", "react/jsx-uses-vars": "error",
         "react/prop-types": 0,
         "no-console": 0,
-        "react/no-find-dom-node": 0
+        "react/no-find-dom-node": 0,
+        "no-unused-vars": 0
     }
 };

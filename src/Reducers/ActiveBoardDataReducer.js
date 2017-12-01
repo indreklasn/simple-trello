@@ -37,15 +37,13 @@ const ListReducer = (state = {}, action) => {
             const { cardId, cardName, listId, newListId } = action.payload;
             const currentList = state[newListId];
             currentList.cards.push({ name: cardName, cardId, listId: newListId })
-            console.log(currentList)
-            // const selectedList = state[card.listId];
-            // selectedList.cards.push({ card.cardId, card.listId })
+            const removeCard = state[listId].cards.find(card => card.cardId === cardId);
+            const oldList = state[listId].cards.splice(removeCard, 1)
 
-
-            console.log(action.payload, cardId, cardName, listId, newListId);
+            // console.log(action.payload, cardId, cardName, listId, newListId);
                 return {
                     ...state,
-                    [newListId]: currentList
+                    [newListId]: currentList,
 
                 }
         }
