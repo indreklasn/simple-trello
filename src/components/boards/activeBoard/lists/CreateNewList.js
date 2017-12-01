@@ -1,15 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+import { fadeIn } from '~Utils/Animations';
 
 export const Wrapper = styled.div`
     display: flex;
-    margin: 0 20px;
-    background-color: rgba(255, 255, 255, 0.45);
+    margin: 20px;
+    background-color: rgb(151, 0, 204);
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     transition: all 150ms ease-in-out;
     cursor: pointer;
-    height: 60px;
-    padding: 0 40px;
+    height: 100px;
+    padding: 10px 40px;
+    align-items: center;
+    animation: ${fadeIn} 300ms linear;
 
     &:hover {
         cursor: pointer;
@@ -20,7 +23,8 @@ export const Wrapper = styled.div`
 `
 
 const Text = styled.h4`
-    color: #333;
+    color: white;
+    font-weight: 900;
 `
 
 const CreateNewList = ({ addList }) => (

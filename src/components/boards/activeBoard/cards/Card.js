@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 import { DragSource } from 'react-dnd';
 import { ItemTypes } from '~Utils/Constants';
+import { fadeIn } from '~Utils/Animations';
 
 const CardWrapper = styled.div`
     margin: 10px 0;
@@ -11,12 +12,25 @@ const CardWrapper = styled.div`
     background: rgb(241, 241, 241);
     border-radius: 4.5px;
     cursor: grab;
+    animation: ${fadeIn} 300ms linear;
+    display: flex;
+    justify-content: space-around;
+
 `
 
 const CardTitle = styled.h3`
     font-weight: bold;
     font-size: 19px;
     margin: 0;
+`
+
+const ArchiveTask = styled.button`
+    padding: 4px 7px;
+    opacity: 0.4;
+    border: none;
+    border-radius: 9999;
+    cursor: pointer;
+    font-size: 16px;
 `
 
 const cardSource = {
@@ -26,6 +40,7 @@ const cardSource = {
         }
     }
 }
+
 
 function collect(connect, monitor) {
 	return {
@@ -49,7 +64,8 @@ class Card extends Component {
         const {
             isDragging,
             connectDragSource,
-            title
+            title,
+            togglePost
         } = this.props;
         const cardStyles = { opacity: isDragging ? 0.5 : 1 };
 
@@ -57,6 +73,7 @@ class Card extends Component {
             <div>
                 <CardWrapper style={cardStyles}>
                     <CardTitle>{title}</CardTitle>
+                    <ArchiveTask onClick={() => togglePost}>✓</ArchiveTask>
                 </CardWrapper>
             </div>
 

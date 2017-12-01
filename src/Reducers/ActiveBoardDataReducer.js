@@ -2,7 +2,8 @@ import { combineReducers } from 'redux';
 import {
     SUBMIT_LIST,
     SUBMIT_NEW_CARD,
-    HANDLE_DROP
+    HANDLE_DROP,
+    ARCHIVE_POST,
 } from '~Actions/ActionTypes';
 import uniqueId from 'lodash/uniqueId';
 
@@ -19,6 +20,7 @@ const ListReducer = (state = {}, action) => {
                 [listId]: { // the unique ID of the list
                     name: action.payload, // name of the list
                     id: listId, // list ID
+                    isArchived: false,
                     cards: [] // card IDs go inside here
                 }
             };
@@ -35,18 +37,22 @@ const ListReducer = (state = {}, action) => {
 
         case HANDLE_DROP: {
             const { cardId, cardName, listId, newListId } = action.payload;
-            const currentList = state[newListId];
-            currentList.cards.push({ name: cardName, cardId, listId: newListId })
-            const removeCard = state[listId].cards.find(card => card.cardId === cardId);
-            const oldList = state[listId].cards.splice(removeCard, 1)
+            const currentList = state[newListId]; // list that's going to be taking the new card
+            currentList.cards.push({ name: cardName, cardId, listId: newListId }) // add the card to the list
+            const removeCard = state[listId].cards.find(card => card.cardId === cardId); // find the card to remove
+            const oldList = state[listId].cards.splice(removeCard, 1) // remove the card from the list
 
             // console.log(action.payload, cardId, cardName, listId, newListId);
                 return {
                     ...state,
                     [newListId]: currentList,
-
                 }
         }
+
+        case ARCHIVE_POST:
+            return {
+                ...state
+            }
 
         default:
             return state;

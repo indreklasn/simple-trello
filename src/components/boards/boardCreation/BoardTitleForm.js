@@ -18,7 +18,7 @@ const CancelButton = styled.button`
     &:hover {
         transition: all 200ms ease-in-out;
         background-color: none;
-        color: #000;
+        color: #00ffc5;
     }
 `
 
@@ -36,10 +36,15 @@ const SubmitButton = styled.button`
     margin: 15px 18px 5px;
     text-transform: uppercase;
     cursor: pointer;
-    transition: all 200ms ease-in-out;
+    transition: all 250 ease-in-out;
+    border: none;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.16), 0 3px 3px rgba(0,0,0,0.23);
+
     &:hover {
-        transition: all 200ms ease-in-out;
-        color:  #333;
+        transition: all 250ms ease-in-out;
+        color: #00BAFF;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        background-color: #dbdbdb;
     }
 `
 

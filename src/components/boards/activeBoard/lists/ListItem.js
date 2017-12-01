@@ -5,6 +5,7 @@ import { DropTarget } from 'react-dnd';
 import { ItemTypes } from '~Utils/Constants';
 import { connect } from 'react-redux'
 import handleDrop from '~Actions/handleDrop';
+import { fadeIn } from '~Utils/Animations';
 
 const ListItemWrapper = styled.div`
     display: inline-block;
@@ -14,6 +15,8 @@ const ListItemWrapper = styled.div`
     padding: 5px 10px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     transition: all 150ms ease-in-out;
+    animation: ${fadeIn} 300ms linear;
+
 `
 
 const ListItemHeader = styled.h4`

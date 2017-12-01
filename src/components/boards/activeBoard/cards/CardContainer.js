@@ -23,6 +23,7 @@ class CreateCardContainer extends Component {
                     title={card.name}
                     cardId={card.cardId}
                     listId={card.listId}
+                    isArchived={card.isArchived}
                 />
             )
         })

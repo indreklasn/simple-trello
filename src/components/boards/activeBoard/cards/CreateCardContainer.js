@@ -6,6 +6,7 @@ import submitNewCard from '~Actions/SubmitNewCard';
 import BoardTitleInput from './../../boardCreation/BoardTitleInput';
 import Card from './Card';
 import uniqueId from 'lodash/uniqueId';
+import archiveCard from '~Actions/ArchiveCard';
 
 class CreateCardContainer extends Component {
 
@@ -18,8 +19,20 @@ class CreateCardContainer extends Component {
     renderCards = () => {
         const { activeBoardData, listId } = this.props;
         return activeBoardData.listItems[listId].cards.map((card, i) => {
-            return <Card key={i} title={card.name} listId={card.listId} />
+            return (
+                <Card
+                    key={i}
+                    title={card.name}
+                    listId={card.listId}
+                    togglePost={this.togglePost(card.cardId, card.listId)}
+                />
+            )
         })
+    }
+
+    togglePost = (cardId, listId) => {
+        console.log(cardId, listId);
+        this.props.archiveCard(cardId, listId)
     }
 
     render() {
@@ -41,11 +54,13 @@ class CreateCardContainer extends Component {
     }
 }
 
-function validate(values) {
+const validate = (values, props) => {
     const errors = {};
+    const { listId } = props;
+    let cardName = `cardName_${listId}`
 
-    if (!values.cardName) {
-        errors.cardName = 'oops!';
+    if (!values[cardName]) {
+        errors[cardName] = 'oops, give me name';
     }
 
     return errors;
@@ -63,4 +78,4 @@ export default reduxForm({
     validate,
     form: 'card',
     onSubmitSuccess: afterSubmit,
-})(connect(mapStateToProps, { submitNewCard })(CreateCardContainer));
+})(connect(mapStateToProps, { submitNewCard, archiveCard })(CreateCardContainer));

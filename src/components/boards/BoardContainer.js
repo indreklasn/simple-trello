@@ -3,11 +3,13 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import CreateBoardContainer from './boardCreation/CreateBoardContainer';
 import ShowAllBoards from './ShowAllBoards';
+import { fadeIn } from '~Utils/Animations';
 
 const Wrapper = styled.div`
   display: flex;
   padding: 60px 35px;
   flex-wrap: wrap;
+  animation: ${fadeIn} 300ms linear;
 `
 class BoardContainer extends Component {
 
