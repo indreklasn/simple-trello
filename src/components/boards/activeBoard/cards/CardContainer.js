@@ -9,9 +9,9 @@ import uniqueId from 'lodash/uniqueId';
 class CreateCardContainer extends Component {
 
     submit = values => {
-        const { listId } = this.props;
-        let cardName = `cardName_${listId}`
-        this.props.submitNewCard(values[cardName], uniqueId('cardItem_'), listId)
+        const { listId, submitNewCard } = this.props;
+        let cardName = `cardName_${listId}`;
+        submitNewCard(values[cardName], uniqueId('cardItem_'), listId);
     }
 
     renderCards = () => {

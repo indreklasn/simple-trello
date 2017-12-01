@@ -20,7 +20,6 @@ const ListReducer = (state = {}, action) => {
                 [listId]: { // the unique ID of the list
                     name: action.payload, // name of the list
                     id: listId, // list ID
-                    isArchived: false,
                     cards: [] // card IDs go inside here
                 }
             };
@@ -28,7 +27,7 @@ const ListReducer = (state = {}, action) => {
         case SUBMIT_NEW_CARD: {
             const { listId, cardName, cardId } = action.payload;
             const currentList = state[listId];
-            currentList.cards.push({ name: cardName, cardId, listId })
+            currentList.cards.push({ name: cardName, cardId, listId, isArchived: false })
             return {
                 ...state,
                 [listId]: currentList,
@@ -49,10 +48,24 @@ const ListReducer = (state = {}, action) => {
                 }
         }
 
-        case ARCHIVE_POST:
-            return {
-                ...state
+        case ARCHIVE_POST: {
+            const { cardId, listId } = action.payload;
+            const currentList = state[listId];
+            const findCard = currentList.cards.find(card => card.cardId === cardId);
+
+            if (findCard.isArchived === false) {
+                findCard.isArchived = true;
+            } else {
+                findCard.isArchived = false;
             }
+
+            console.log(findCard);
+
+            return {
+                ...state,
+                [listId]: currentList
+            }
+        }
 
         default:
             return state;

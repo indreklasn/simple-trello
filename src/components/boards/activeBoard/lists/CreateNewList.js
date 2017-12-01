@@ -5,7 +5,7 @@ import { fadeIn } from '~Utils/Animations';
 export const Wrapper = styled.div`
     display: flex;
     margin: 20px;
-    background-color: rgb(151, 0, 204);
+    background-color: #0a2c74;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     transition: all 150ms ease-in-out;
     cursor: pointer;

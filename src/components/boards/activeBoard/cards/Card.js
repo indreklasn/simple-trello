@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types'
-
+import { connect } from 'react-redux'
 import { DragSource } from 'react-dnd';
 import { ItemTypes } from '~Utils/Constants';
 import { fadeIn } from '~Utils/Animations';
+import archiveCard from '~Actions/ArchiveCard';
 
 const CardWrapper = styled.div`
     margin: 10px 0;
@@ -24,7 +25,7 @@ const CardTitle = styled.h3`
     margin: 0;
 `
 
-const ArchiveTask = styled.button`
+const ArchiveTask = styled.div`
     padding: 4px 7px;
     opacity: 0.4;
     border: none;
@@ -50,7 +51,6 @@ function collect(connect, monitor) {
 	}
 }
 
-
 @DragSource(ItemTypes.CARD, cardSource, collect)
 class Card extends Component {
 
@@ -60,20 +60,35 @@ class Card extends Component {
 		isDragging: PropTypes.bool.isRequired,
     }
 
+    togglePost = (cardId, listId) => {
+        this.props.archiveCard(cardId, listId)
+    }
+
     render() {
+
         const {
             isDragging,
             connectDragSource,
             title,
-            togglePost
+            archiveCard,
+            cardId,
+            listId,
+            isArchived,
         } = this.props;
-        const cardStyles = { opacity: isDragging ? 0.5 : 1 };
+        console.log(this.props)
+
+        const cardStyles = {
+            opacity: isDragging || isArchived ? 0.35 : 1,
+            boxShadow: "0 6px 6px rgba(0,0,0,0.16), 0 6px 6px rgba(0,0,0,0.23)",
+            textDecoration: isArchived ? "line-through" : "none",
+            backgroundColor: isArchived ? "#DECAFF" : "#caffde",
+        };
 
         return connectDragSource(
             <div>
                 <CardWrapper style={cardStyles}>
                     <CardTitle>{title}</CardTitle>
-                    <ArchiveTask onClick={() => togglePost}>✓</ArchiveTask>
+                    <ArchiveTask onClick={() => this.togglePost(cardId, listId)}>✓</ArchiveTask>
                 </CardWrapper>
             </div>
 
@@ -81,5 +96,10 @@ class Card extends Component {
     }
 }
 
+const mapStateToProps = ({ activeBoardData }) => {
+    return {
+        activeBoardData
+    }
+}
 
-export default Card;
+export default connect(mapStateToProps, { archiveCard })(Card);
