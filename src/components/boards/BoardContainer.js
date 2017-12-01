@@ -9,7 +9,6 @@ const Wrapper = styled.div`
   padding: 60px 35px;
   flex-wrap: wrap;
 `
-
 class BoardContainer extends Component {
 
   renderAllBoards = () => {
@@ -35,7 +34,7 @@ class BoardContainer extends Component {
   }
 }
 
-function mapStateToProps({boardsCollection}) {
+function mapStateToProps({ boardsCollection }) {
   return {
     boardsCollection
   }

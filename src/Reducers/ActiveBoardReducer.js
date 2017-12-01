@@ -3,7 +3,7 @@ import {
     SELECT_ACTIVE_BOARD_SUCCESS,
     LIST_EDIT_MODE_ENABLED,
     STOP_EDITING_LIST,
-} from './../Actions/ActionTypes';
+} from '~Actions/ActionTypes';
 
 
 const initialState = {
@@ -32,7 +32,6 @@ export default function(state = initialState, action) {
                 }
 
             case STOP_EDITING_LIST:
-                console.log("inside LIST_EDIT_MODE_DISABLED")
                 return {
                     ...state,
                     isEditingList: action.payload
@@ -46,7 +45,9 @@ export default function(state = initialState, action) {
 
 
         default:
-            return {...state};
+            return {
+                ...state
+            };
 
     }
 }

@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components';
 import DisableListEditMode from './DisableListEditMode';
-import disableListEditMode from './../../../Actions/DisableListEditMode';
+import disableListEditMode from '~Actions/DisableListEditMode';
 import { reduxForm, Field, reset } from 'redux-form';
-import BoardTitleInput from './../boardCreation/BoardTitleInput';
+import BoardTitleInput from './../../boardCreation/BoardTitleInput';
 
 
 
@@ -36,7 +36,7 @@ class ListEditingMode extends Component {
     }
 }
 
-function mapStateToProps({activeBoard}) {
+function mapStateToProps({ activeBoard }) {
     return { activeBoard }
 }
 

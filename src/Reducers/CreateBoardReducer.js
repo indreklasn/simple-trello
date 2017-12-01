@@ -4,7 +4,7 @@ import {
     CREATE_NEW_BOARD,
     CANCEL_NEW_BOARD,
     SUBMIT_NEW_BOARD,
-} from './../Actions/ActionTypes';
+} from '~Actions/ActionTypes';
 
 const initialState = {
     isBoardOpen: false,

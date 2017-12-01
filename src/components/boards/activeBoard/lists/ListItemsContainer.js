@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import styled from 'styled-components';
 import mapValues from 'lodash/mapValues';
-import ListItem, { ListItemsWrapper } from './ListItem';
+import ListItem from './ListItem';
 
+const ListItemsWrapper = styled.div`
+    display: flex;
+`
 
 class ListItemsContainer extends Component {
 
@@ -19,16 +23,18 @@ class ListItemsContainer extends Component {
     }
 
     render() {
-
         return (
-            <ListItemsWrapper>
-                {this.renderListItems()}
-            </ListItemsWrapper>
+            <div>
+                <ListItemsWrapper>
+                    {this.renderListItems()}
+                </ListItemsWrapper>
+            </div>
+
         )
     }
 }
 
-function mapStateToProps({activeBoardData}) {
+function mapStateToProps({ activeBoardData }) {
     return { activeBoardData }
 }
 

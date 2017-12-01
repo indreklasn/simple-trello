@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import selectActiveBoard from './../../../Actions/SelectActiveBoard';
-import enableListEditMode from './../../../Actions/ToggleListEditMode';
-import submitList from './../../../Actions/SubmitList';
+import selectActiveBoard from '~Actions/SelectActiveBoard';
+import enableListEditMode from '~Actions/ToggleListEditMode';
+import submitList from '~Actions/SubmitList';
 import ActiveBoardTitle from './ActiveBoardTitle';
-import ListWrapper from './ListWrapper';
-import CreateNewList from './CreateNewList';
-import ListEditingMode from './ListEditingMode';
-import ListItemsContainer from './ListItemsContainer';
+import ListWrapper from './lists/ListWrapper';
+import CreateNewList from './lists/CreateNewList';
+import ListEditingMode from './lists/ListEditingMode';
+import ListItemsContainer from './lists/ListItemsContainer';
 
 class ShowActiveBoard extends Component {
 

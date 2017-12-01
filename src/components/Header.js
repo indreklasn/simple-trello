@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Logo from '../Assets/logo.svg';
+import Logo from '~Assets/logo.svg';
 import { Link } from 'react-router-dom';
 
 const HeaderWrapper = styled.div`

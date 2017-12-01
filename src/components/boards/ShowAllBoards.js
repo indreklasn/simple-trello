@@ -32,7 +32,7 @@ const BoardWrapper = styled.div`
     }
 `
 
-const ShowAllBoards = ({title, id}) => (
+const ShowAllBoards = ({ title, id }) => (
     <Link to={`/b/${id}`}>
         <BoardWrapper>
             <Title>{title}</Title>

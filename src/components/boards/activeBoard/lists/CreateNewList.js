@@ -23,7 +23,7 @@ const Text = styled.h4`
     color: #333;
 `
 
-const CreateNewList = ({addList}) => (
+const CreateNewList = ({ addList }) => (
     <Wrapper onClick={addList}>
         <Text>Add a list...</Text>
     </Wrapper>

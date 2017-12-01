@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import CloseIcon from '../../../Assets/closeIcon.svg';
+import CloseIcon from '~Assets/closeIcon.svg';
 
 const DisableWrapper = styled.div`
     position: relative;
@@ -24,7 +24,7 @@ const DisableButton = styled.svg`
     }
 `
 
-const DisableListEditMode = ({disableList}) => (
+const DisableListEditMode = ({ disableList }) => (
     <DisableWrapper onClick={disableList}>
         <DisableButton />
     </DisableWrapper>
