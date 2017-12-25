@@ -4,15 +4,20 @@ import {
     SUBMIT_NEW_CARD,
     HANDLE_DROP,
     ARCHIVE_POST,
+    SELECT_ACTIVE_BOARD
 } from '~Actions/ActionTypes';
 import uniqueId from 'lodash/uniqueId';
 
-
+// Ne devrait-il pas créer une initialisation avec listItems ?
+// par défaut ?
 const ListReducer = (state = {}, action) => {
 
     const listId = uniqueId("list_");
 
     switch (action.type) {
+
+        case SELECT_ACTIVE_BOARD:
+            return action.payload.data || null
 
         case SUBMIT_LIST:
             return {
