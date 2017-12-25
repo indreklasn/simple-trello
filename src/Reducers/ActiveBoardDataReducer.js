@@ -8,8 +8,6 @@ import {
 } from '~Actions/ActionTypes';
 import uniqueId from 'lodash/uniqueId';
 
-// Ne devrait-il pas créer une initialisation avec listItems ?
-// par défaut ?
 const ListReducer = (state = {}, action) => {
 
     const listId = uniqueId("list_");
