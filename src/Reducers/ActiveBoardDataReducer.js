@@ -4,15 +4,18 @@ import {
     SUBMIT_NEW_CARD,
     HANDLE_DROP,
     ARCHIVE_POST,
+    SELECT_ACTIVE_BOARD
 } from '~Actions/ActionTypes';
 import uniqueId from 'lodash/uniqueId';
-
 
 const ListReducer = (state = {}, action) => {
 
     const listId = uniqueId("list_");
 
     switch (action.type) {
+
+        case SELECT_ACTIVE_BOARD:
+            return action.payload.data || [];
 
         case SUBMIT_LIST:
             return {
