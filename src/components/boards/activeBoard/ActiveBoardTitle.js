@@ -6,7 +6,6 @@ const TitleWrapper = styled.div`
     display: flex;
     justify-content: start;
     padding: 10px 60px;
-    width: 100%;
     animation: ${fadeIn} 300ms linear;
 `
 
