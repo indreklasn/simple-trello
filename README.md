@@ -1,5 +1,6 @@
-indreklasn/simple-trello is being sponsored by the following tool; please help to support us by taking a look and signing up to a free trial”
-<!--<a href="https://tracking.gitads.io/?repo=indreklasn+simple-trello"> <img src="https://images.gitads.io/indreklasn+simple-trello" alt="GitAds"/> </a>-->
+indreklasn/simple-trello is being sponsored by the following tool; please help to support us by taking a look and signing up to a free trial
+
+<a href="https://tracking.gitads.io/?repo=indreklasn+simple-trello"> <img src="https://images.gitads.io/indreklasn+simple-trello" alt="GitAds"/> </a>
 
 # Trello clone
 
